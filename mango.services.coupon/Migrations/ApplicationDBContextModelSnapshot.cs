@@ -53,7 +53,7 @@ namespace Mango.Services.CouponAPI.Migrations
                             CouponId = 1,
                             CouponCode = "10OFF",
                             DiscountAmount = 10,
-                            LastUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastUpdated = new DateTime(2025, 2, 24, 19, 44, 21, 771, DateTimeKind.Local).AddTicks(2435),
                             MinAmount = 20
                         },
                         new
@@ -61,7 +61,7 @@ namespace Mango.Services.CouponAPI.Migrations
                             CouponId = 2,
                             CouponCode = "20OFF",
                             DiscountAmount = 20,
-                            LastUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastUpdated = new DateTime(2025, 2, 24, 19, 44, 21, 772, DateTimeKind.Local).AddTicks(4371),
                             MinAmount = 40
                         });
                 });
