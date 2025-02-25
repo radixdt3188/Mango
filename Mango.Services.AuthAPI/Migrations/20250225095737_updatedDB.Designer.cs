@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mango.Services.AuthAPI.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20250224140731_addedNewNameColumn")]
-    partial class addedNewNameColumn
+    [Migration("20250225095737_updatedDB")]
+    partial class updatedDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

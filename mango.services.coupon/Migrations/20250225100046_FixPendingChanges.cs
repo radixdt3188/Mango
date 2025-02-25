@@ -16,14 +16,14 @@ namespace Mango.Services.CouponAPI.Migrations
                 keyColumn: "CouponId",
                 keyValue: 1,
                 column: "LastUpdated",
-                value: new DateTime(2025, 2, 24, 19, 44, 21, 771, DateTimeKind.Local).AddTicks(2435));
+                value: new DateTime(2025, 2, 25, 15, 30, 45, 744, DateTimeKind.Local).AddTicks(8100));
 
             migrationBuilder.UpdateData(
                 table: "Coupons",
                 keyColumn: "CouponId",
                 keyValue: 2,
                 column: "LastUpdated",
-                value: new DateTime(2025, 2, 24, 19, 44, 21, 772, DateTimeKind.Local).AddTicks(4371));
+                value: new DateTime(2025, 2, 25, 15, 30, 45, 745, DateTimeKind.Local).AddTicks(1556));
         }
 
         /// <inheritdoc />
@@ -34,14 +34,14 @@ namespace Mango.Services.CouponAPI.Migrations
                 keyColumn: "CouponId",
                 keyValue: 1,
                 column: "LastUpdated",
-                value: new DateTime(2025, 2, 24, 19, 8, 26, 309, DateTimeKind.Local).AddTicks(6465));
+                value: new DateTime(2025, 2, 25, 15, 27, 57, 698, DateTimeKind.Local).AddTicks(9531));
 
             migrationBuilder.UpdateData(
                 table: "Coupons",
                 keyColumn: "CouponId",
                 keyValue: 2,
                 column: "LastUpdated",
-                value: new DateTime(2025, 2, 24, 19, 8, 26, 312, DateTimeKind.Local).AddTicks(1958));
+                value: new DateTime(2025, 2, 25, 15, 27, 57, 699, DateTimeKind.Local).AddTicks(8019));
         }
     }
 }

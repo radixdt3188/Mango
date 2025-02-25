@@ -4,6 +4,7 @@ using Mango.Services.CouponAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mango.Services.CouponAPI.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250225100138_FixPendingChanges1")]
+    partial class FixPendingChanges1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,24 +49,6 @@ namespace Mango.Services.CouponAPI.Migrations
                     b.HasKey("CouponId");
 
                     b.ToTable("Coupons");
-
-                    b.HasData(
-                        new
-                        {
-                            CouponId = 1,
-                            CouponCode = "10OFF",
-                            DiscountAmount = 10,
-                            LastUpdated = new DateTime(2025, 2, 25, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            MinAmount = 20
-                        },
-                        new
-                        {
-                            CouponId = 2,
-                            CouponCode = "20OFF",
-                            DiscountAmount = 20,
-                            LastUpdated = new DateTime(2025, 2, 25, 11, 0, 0, 0, DateTimeKind.Unspecified),
-                            MinAmount = 40
-                        });
                 });
 #pragma warning restore 612, 618
         }

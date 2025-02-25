@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mango.Services.CouponAPI.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20250224141422_FixPendingChanges")]
+    [Migration("20250225100046_FixPendingChanges")]
     partial class FixPendingChanges
     {
         /// <inheritdoc />
@@ -56,7 +56,7 @@ namespace Mango.Services.CouponAPI.Migrations
                             CouponId = 1,
                             CouponCode = "10OFF",
                             DiscountAmount = 10,
-                            LastUpdated = new DateTime(2025, 2, 24, 19, 44, 21, 771, DateTimeKind.Local).AddTicks(2435),
+                            LastUpdated = new DateTime(2025, 2, 25, 15, 30, 45, 744, DateTimeKind.Local).AddTicks(8100),
                             MinAmount = 20
                         },
                         new
@@ -64,7 +64,7 @@ namespace Mango.Services.CouponAPI.Migrations
                             CouponId = 2,
                             CouponCode = "20OFF",
                             DiscountAmount = 20,
-                            LastUpdated = new DateTime(2025, 2, 24, 19, 44, 21, 772, DateTimeKind.Local).AddTicks(4371),
+                            LastUpdated = new DateTime(2025, 2, 25, 15, 30, 45, 745, DateTimeKind.Local).AddTicks(1556),
                             MinAmount = 40
                         });
                 });

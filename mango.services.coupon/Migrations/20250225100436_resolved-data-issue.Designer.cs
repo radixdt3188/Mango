@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mango.Services.CouponAPI.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20250221083946_SeedCouponData")]
-    partial class SeedCouponData
+    [Migration("20250225100436_resolved-data-issue")]
+    partial class resolveddataissue
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,7 +56,7 @@ namespace Mango.Services.CouponAPI.Migrations
                             CouponId = 1,
                             CouponCode = "10OFF",
                             DiscountAmount = 10,
-                            LastUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastUpdated = new DateTime(2025, 2, 25, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             MinAmount = 20
                         },
                         new
@@ -64,7 +64,7 @@ namespace Mango.Services.CouponAPI.Migrations
                             CouponId = 2,
                             CouponCode = "20OFF",
                             DiscountAmount = 20,
-                            LastUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastUpdated = new DateTime(2025, 2, 25, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             MinAmount = 40
                         });
                 });

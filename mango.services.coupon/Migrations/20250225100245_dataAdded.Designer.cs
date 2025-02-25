@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mango.Services.CouponAPI.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20250221064548_addcoupontodb")]
-    partial class addcoupontodb
+    [Migration("20250225100245_dataAdded")]
+    partial class dataAdded
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,20 +37,36 @@ namespace Mango.Services.CouponAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DiscountAmount")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("DiscountAmount")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("LastUpdated")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("MinAmount")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("MinAmount")
+                        .HasColumnType("int");
 
                     b.HasKey("CouponId");
 
                     b.ToTable("Coupons");
+
+                    b.HasData(
+                        new
+                        {
+                            CouponId = 1,
+                            CouponCode = "10OFF",
+                            DiscountAmount = 10,
+                            LastUpdated = new DateTime(2025, 2, 25, 15, 32, 44, 968, DateTimeKind.Local).AddTicks(2248),
+                            MinAmount = 20
+                        },
+                        new
+                        {
+                            CouponId = 2,
+                            CouponCode = "20OFF",
+                            DiscountAmount = 20,
+                            LastUpdated = new DateTime(2025, 2, 25, 15, 32, 44, 968, DateTimeKind.Local).AddTicks(6028),
+                            MinAmount = 40
+                        });
                 });
 #pragma warning restore 612, 618
         }
