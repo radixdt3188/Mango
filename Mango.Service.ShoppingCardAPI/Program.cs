@@ -1,15 +1,20 @@
 using AutoMapper;
-using Mango.Services.ProductAPI.Extensions;
-using Mango.Services.ProductAPI.Models;
+using Mango.Services.ShoppingCartAPI.Data;
+using Mango.Services.ShoppingCartAPI.Extensions;
+using Mango.Services.ShoppingCartAPI.Service.IService;
+using Mango.Services.ShoppingCartAPI.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
-using MappingConfig = Mango.Services.ProductAPI.MappingConfig;
+using MappingConfig = Mango.Services.ShoppingCartAPI.MappingConfig;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IProductService, ProductService>(); 
+builder.Services.AddScoped<ICouponService, CouponService>();
+
 
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
 {
@@ -19,6 +24,10 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddHttpClient("Product", u => u.BaseAddress =
+new Uri(builder.Configuration["ServiceUrls:ProductAPI"]));
+builder.Services.AddHttpClient("Coupon", u => u.BaseAddress =
+new Uri(builder.Configuration["ServiceUrls:CouponAPI"]));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -70,15 +79,15 @@ app.MapControllers();
 app.Run();
 
 
-//void ApplyMigration()
-//{
-//    using (var scope = app.Services.CreateScope())
-//    {
-//        var _db = scope.ServiceProvider.GetRequiredService<ApplicationDBContext>();
+void ApplyMigration()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var _db = scope.ServiceProvider.GetRequiredService<ApplicationDBContext>();
 
-//        if (_db.Database.GetPendingMigrations().Count() > 0)
-//        {
-//            _db.Database.Migrate();
-//        }
-//    }
-//}
+        if (_db.Database.GetPendingMigrations().Count() > 0)
+        {
+            _db.Database.Migrate();
+        }
+    }
+}

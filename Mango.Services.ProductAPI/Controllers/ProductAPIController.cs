@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Mango.Services.ProductAPI.Data;
 using Mango.Services.ProductAPI.Models;
 using Mango.Services.ProductAPI.Models.Dto;
 using Microsoft.AspNetCore.Authorization;
@@ -9,6 +8,7 @@ namespace Mango.Services.ProductAPI.Controllers
 {
     [Route("api/product")]
     [ApiController]
+    //[Authorize]
     public class ProductAPIController : ControllerBase
     {
         private readonly ApplicationDBContext _db;
